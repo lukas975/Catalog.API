@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.InfrastructureSP
 {
-    public class ItemRepository : IItemRepository
+    public class ItemRepository
     {
         private readonly SqlConnection _sqlConnection;
 

@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Catalog.Infrastructure.Tests.Extensions
+namespace Catalog.Fixtures.Extensions
 {
     public static class ModelBuilderExtensions
     {
