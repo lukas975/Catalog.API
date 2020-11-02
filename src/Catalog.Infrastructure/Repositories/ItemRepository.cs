@@ -23,21 +23,48 @@ namespace Catalog.Infrastructure.Repositories
         {
             return await _context.Items.AsNoTracking().ToListAsync();
         }
+
         public async Task<Item> GetAsync(Guid id)
         {
             var item = await _context.Items.AsNoTracking().Where(x => x.Id == id).Include(x => x.Genre).Include(x => x.Artist).FirstOrDefaultAsync();
 
             return item;
         }
+
         public Item Add(Item order)
         {
             return _context.Items.Add(order).Entity;
         }
+
         public Item Update(Item item)
         {
             _context.Entry(item).State = EntityState.Modified;
 
             return item;
+        }
+
+        public async Task<IEnumerable<Item>> GetItemByArtistIdAsync(Guid id)
+        {
+            var items = await _context
+                .Items
+                .Where(item => item.ArtistId == id)
+                .Include(x => x.Genre)
+                .Include(x => x.Artist)
+                .ToListAsync();
+
+            return items;
+        }
+
+        public async Task<IEnumerable<Item>> GetItemByGenreIdAsync(Guid id)
+        {
+            var items = await _context
+                .Items
+                .Where(item => item.GenreId == id)
+                .Include(x => x.Genre)
+                .Include(x => x.Artist)
+                .ToListAsync();
+
+            return items;
         }
     }
 }
