@@ -33,7 +33,7 @@ namespace Catalog.API.Controllers
                 .Skip(pageSize * pageIndex)
                 .Take(pageSize);
 
-            var model = new PaginatedItemsResponseModel<ItemResponse>(pageIndex, pageSize, totalItems, itemsOnPage);
+            var model = new PaginatedItemResponseModel<ItemResponse>(pageIndex, pageSize, totalItems, itemsOnPage);
 
             return Ok(model);
         }

@@ -31,7 +31,7 @@ namespace Catalog.API.Controllers
                 .OrderBy(c => c.GenreDescription)
                 .Skip(pageSize * pageIndex)
                 .Take(pageSize);
-            var model = new PaginatedItemsResponseModel<GenreResponse>(
+            var model = new PaginatedItemResponseModel<GenreResponse>(
             pageIndex, pageSize, totalItems, itemsOnPage);
             return Ok(model);
         }

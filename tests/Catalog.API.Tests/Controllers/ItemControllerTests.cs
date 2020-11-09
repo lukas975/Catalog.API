@@ -49,7 +49,7 @@ namespace Catalog.API.Tests.Controllers
             
             var responseContent = await response.Content.ReadAsStringAsync();
             
-            var responseEntity = JsonConvert.DeserializeObject<PaginatedItemsResponseModel<ItemResponse>>(responseContent);
+            var responseEntity = JsonConvert.DeserializeObject<PaginatedItemResponseModel<ItemResponse>>(responseContent);
             responseEntity.PageIndex.ShouldBe(pageIndex);
             responseEntity.PageSize.ShouldBe(pageSize);
             responseEntity.Data.Count().ShouldBe(pageSize);

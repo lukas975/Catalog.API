@@ -45,7 +45,7 @@ namespace Catalog.API.Tests.Controllers
             response.EnsureSuccessStatusCode();
 
             var responseContent = await response.Content.ReadAsStringAsync();
-            var responseEntity = JsonConvert.DeserializeObject<PaginatedItemsResponseModel<GenreResponse>>(responseContent);
+            var responseEntity = JsonConvert.DeserializeObject<PaginatedItemResponseModel<GenreResponse>>(responseContent);
 
             responseEntity.PageIndex.ShouldBe(pageIndex);
             responseEntity.PageSize.ShouldBe(pageSize);

@@ -2,9 +2,9 @@
 
 namespace Catalog.API.ResponseModels
 {
-    public class PaginatedItemsResponseModel <TEntity> where TEntity : class
+    public class PaginatedItemResponseModel <TEntity> where TEntity : class
     {
-        public PaginatedItemsResponseModel(int pageIndex, int pageSize, long total, IEnumerable<TEntity> data)
+        public PaginatedItemResponseModel(int pageIndex, int pageSize, long total, IEnumerable<TEntity> data)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
