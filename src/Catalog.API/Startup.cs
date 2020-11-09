@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Catalog.API.Controllers;
 using Catalog.API.Extensions;
+using Catalog.API.Middleware;
 using Catalog.API.ResponseModels;
 using Catalog.Domain.Extensions;
 using Catalog.Domain.Repositories;
@@ -74,6 +75,8 @@ namespace Catalog.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ResponseTimeMiddlewareAsync>();
 
             app.UseEndpoints(endpoints =>
             {
